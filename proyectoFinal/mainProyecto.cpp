@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int tabla[F][C], tabla1[F][C], resultados[F];
+int tabla[F][C], resultados[F];
 
 //Índice
 void llenado(); //Completado
@@ -95,7 +95,7 @@ void llenadoAutomatico(){ //Lenado automático con números aleatorios
     srand(time(NULL));
     for (int i = 0; i <= F; i++) 
         for (int j = 0; j <= C; j++){
-            tabla1[i][j] = 10 + rand()%20;
+            tabla[i][j] = 10 + rand()%20;
         }
 }
 
@@ -103,40 +103,40 @@ void mostrar() { //Muestra la matriz
     for (int i = 0; i <= F; i++){
         cout << endl;
         for (int j = 0; j <= C; j++){
-            cout << tabla1[i][j] << "\t";
+            cout << tabla[i][j] << "\t";
         }
     }
 }
 
-int sumaUtilidades(){
+int sumaUtilidades(){ //Gera
     
 }
 
-int productoMasVendido(){
+int productoMasVendido(){ //Gera
 
 }
 
-int productoMasCaro(){
+int productoMasCaro(){ //Gera
 
 }
 
-int totalStock(){
+int totalStock(){ //Gera
 
 }
 
-int productoMasUtilidad(){
+int productoMasUtilidad(){ //Ángel
 
 }
 
-float promedioDeVentas(){
+float promedioDeVentas(){ //Ángel
 
 }
 
-int productoMenosVentas(){
+int productoMenosVentas(){ //Ángel
 
 }
 
-void buscar(){
+void buscar(){ //Cristian
 
 }
 
