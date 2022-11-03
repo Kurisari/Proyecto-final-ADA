@@ -31,8 +31,7 @@ int main()
     while (continuar)
     {
     otro:
-        cout << endl
-             << "Selecciona una opcion a ejecutar: " << endl;
+        cout << endl << "Selecciona una opcion a ejecutar: " << endl;
         cout << "1	Llenado\n2	Llenado Automatico\n3	Mostrar\n4	Suma de las Utilidades\n5	producto que mas se vende\n6	Producto mas caro\n7	Total de stock\n8	Producto con mas utilidad\n9	Promedio de ventas\n-.	Producto que menos se vende\nb.	Buscar un dato\ns.      salir" << endl;
         cin >> opc;
         switch (opc)
