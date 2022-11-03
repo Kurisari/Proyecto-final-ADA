@@ -108,6 +108,38 @@ void mostrar() { //Muestra la matriz
     }
 }
 
+int sumaUtilidades(){
+    
+}
+
+int productoMasVendido(){
+
+}
+
+int productoMasCaro(){
+
+}
+
+int totalStock(){
+
+}
+
+int productoMasUtilidad(){
+
+}
+
+float promedioDeVentas(){
+
+}
+
+int productoMenosVentas(){
+
+}
+
+void buscar(){
+
+}
+
 void barraProgreso() { //Extra, contiene una función para generar una barra de progreso
     int segundos=1;
     cout << "\t\t    Comenzando llenado automatico...\n";
