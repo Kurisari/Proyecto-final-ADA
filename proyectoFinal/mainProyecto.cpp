@@ -21,10 +21,11 @@ int totalStock();
 int productoMasUtilidad();
 float promedioDeVentas();
 int productoMenosVentas();
-void buscar();
+void buscar(int dato);
 void barraProgreso(); // Extra
 
 int main() {
+    int aux;
     bool continuar = true;
     char opc;
     while (continuar){
@@ -57,6 +58,9 @@ int main() {
         case '-':
             break;
         case 'b':
+            cout << "Ingresa el dato a buscar: " << endl;
+            cin >> aux;
+            buscar(aux);
             break;
         case 's':
             continuar = false;
@@ -137,8 +141,21 @@ int productoMenosVentas(){ //Ángel
 
 }
 
-void buscar(){ //Cristian
-
+void buscar(int dato){ //Cristian
+    bool bandera = false;
+    int posicionX, posicionY;
+    for (int i = 0; i <= F; i++)
+        for (int j = 0; j <= C; j++)
+            if (tabla[i][j] == dato){
+                bandera = true;
+                posicionX = i;
+                posicionY = j;
+            }
+    if (bandera){
+        cout << "Si se encontro el dato en la posicion " << posicionX << ", " << posicionY << endl;
+    } else {
+        cout << "No se encontro el dato" << endl;
+    }
 }
 
 void barraProgreso() { // Extra, contiene una función para generar una barra de progreso
