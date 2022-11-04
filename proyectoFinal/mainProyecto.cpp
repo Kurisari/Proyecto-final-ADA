@@ -16,11 +16,11 @@ void llenadoAutomatico(); // Completado
 void mostrar(); // Completado
 int sumaUtilidades();
 int productoMasVendido();
+int productoMenosVentas();
 int productoMasCaro();
 int totalStock();
 int productoMasUtilidad();
 float promedioDeVentas();
-int productoMenosVentas();
 void buscar(int dato);
 void barraProgreso(); // Extra
 
@@ -121,11 +121,15 @@ int productoMasVendido(){ //Gera
 
 }
 
+int productoMenosVentas(){ //Gera
+
+}
+
 int productoMasCaro(){ //Gera
 
 }
 
-int totalStock(){ //Gera
+int totalStock(){ //Ángel
 
 }
 
@@ -134,10 +138,6 @@ int productoMasUtilidad(){ //Ángel
 }
 
 float promedioDeVentas(){ //Ángel
-
-}
-
-int productoMenosVentas(){ //Ángel
 
 }
 
