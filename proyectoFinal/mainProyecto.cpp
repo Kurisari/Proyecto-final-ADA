@@ -9,6 +9,7 @@
 using namespace std;
 
 int tabla[F][C], resultados[F];
+bool llenada = false;
 
 // Índice
 void llenado(); // Completado
@@ -93,6 +94,7 @@ void llenado() { // llenado con datos ingresados por el usuario
             }
             cin >> tabla[i][j];
         }
+    llenada = true;
 }
 
 void llenadoAutomatico() { // Lenado automático con números aleatorios
@@ -102,15 +104,22 @@ void llenadoAutomatico() { // Lenado automático con números aleatorios
         for (int j = 0; j <= C; j++){
             tabla[i][j] = 10 + rand()%20;
         }
+    llenada = true;
 }
 
 void mostrar() { // Muestra la matriz
-    for (int i = 0; i <= F; i++) {
+    char eleccion;
+    if(llenada){
+        for (int i = 0; i <= F; i++) {
         cout << endl;
-        for (int j = 0; j <= C; j++){
-            cout << tabla[i][j] << "\t";
+            for (int j = 0; j <= C; j++){
+                cout << tabla[i][j] << "\t";
+            }
         }
+    } else{
+        cout << "La tabla aun no ha sido llenada" << endl;
     }
+    cout << endl;
 }
 
 int sumaUtilidades(){ //Gera
