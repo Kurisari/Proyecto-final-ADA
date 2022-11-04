@@ -11,9 +11,9 @@ using namespace std;
 int tabla[F][C], resultados[F];
 
 // Índice
-void llenado();           // Completado
+void llenado(); // Completado
 void llenadoAutomatico(); // Completado
-void mostrar();           // Completado
+void mostrar(); // Completado
 int sumaUtilidades();
 int productoMasVendido();
 int productoMasCaro();
@@ -24,18 +24,15 @@ int productoMenosVentas();
 void buscar();
 void barraProgreso(); // Extra
 
-int main()
-{
+int main() {
     bool continuar = true;
     char opc;
-    while (continuar)
-    {
+    while (continuar){
     otro:
         cout << endl << "Selecciona una opcion a ejecutar: " << endl;
         cout << "1	Llenado\n2	Llenado Automatico\n3	Mostrar\n4	Suma de las Utilidades\n5	producto que mas se vende\n6	Producto mas caro\n7	Total de stock\n8	Producto con mas utilidad\n9	Promedio de ventas\n-.	Producto que menos se vende\nb.	Buscar un dato\ns.      salir" << endl;
         cin >> opc;
-        switch (opc)
-        { // Menu de opciones
+        switch (opc){ // Menu de opciones
         case '1':
             llenado();
             break;
@@ -71,11 +68,9 @@ int main()
     }
 }
 
-void llenado()
-{ // llenado con datos ingresados por el usuario
+void llenado() { // llenado con datos ingresados por el usuario
     for (int i = 0; i <= F; i++)
-        for (int j = 0; j <= C; j++)
-        {
+        for (int j = 0; j <= C; j++){
             cout << "Producto: " << i << ": ";
             switch (j)
             {
@@ -96,8 +91,7 @@ void llenado()
         }
 }
 
-void llenadoAutomatico()
-{ // Lenado automático con números aleatorios
+void llenadoAutomatico() { // Lenado automático con números aleatorios
     barraProgreso();
     srand(time(NULL));
     for (int i = 0; i <= F; i++) 
@@ -106,10 +100,8 @@ void llenadoAutomatico()
         }
 }
 
-void mostrar()
-{ // Muestra la matriz
-    for (int i = 0; i <= F; i++)
-    {
+void mostrar() { // Muestra la matriz
+    for (int i = 0; i <= F; i++) {
         cout << endl;
         for (int j = 0; j <= C; j++){
             cout << tabla[i][j] << "\t";
@@ -149,15 +141,13 @@ void buscar(){ //Cristian
 
 }
 
-void barraProgreso()
-{ // Extra, contiene una función para generar una barra de progreso
+void barraProgreso() { // Extra, contiene una función para generar una barra de progreso
     int segundos = 1;
     cout << "\t\t    Comenzando llenado automatico...\n";
     for (int i = 0; i <= 79; i++)
         cout << "_";
     cout << endl;
-    for (int i = 0; i <= 79; i++)
-    {
+    for (int i = 0; i <= 79; i++){
         cout << char(219);
         Sleep(segundos * 1000 / 80);
     }
