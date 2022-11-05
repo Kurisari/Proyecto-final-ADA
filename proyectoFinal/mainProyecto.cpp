@@ -3,8 +3,8 @@
 #include <cstdlib>
 #include <windows.h>
 
-#define F 4
-#define C 3
+#define F 5
+#define C 4
 
 using namespace std;
 
@@ -45,6 +45,8 @@ int main() {
             mostrar();
             break;
         case '4':
+            aux = sumaUtilidades();
+            cout << "La suma de las utilidades es " << aux;
             break;
         case '5':
             break;
@@ -74,11 +76,10 @@ int main() {
 }
 
 void llenado() { // llenado con datos ingresados por el usuario
-    for (int i = 0; i <= F; i++)
-        for (int j = 0; j <= C; j++){
-            cout << "Producto: " << i << ": ";
-            switch (j)
-            {
+    for (int i = 0; i < F; i++)
+        for (int j = 0; j < C; j++){
+            cout << "Producto: " << i << ", " << j << ": ";
+            switch (j){
             case 0:
                 cout << "Stock" << endl;
                 break;
@@ -100,8 +101,8 @@ void llenado() { // llenado con datos ingresados por el usuario
 void llenadoAutomatico() { // Lenado automático con números aleatorios
     barraProgreso();
     srand(time(NULL));
-    for (int i = 0; i <= F; i++) 
-        for (int j = 0; j <= C; j++){
+    for (int i = 0; i < F; i++) 
+        for (int j = 0; j < C; j++){
             tabla[i][j] = 10 + rand()%20;
         }
     llenada = true;
@@ -110,9 +111,9 @@ void llenadoAutomatico() { // Lenado automático con números aleatorios
 void mostrar() { // Muestra la matriz
     char eleccion;
     if(llenada){
-        for (int i = 0; i <= F; i++) {
+        for (int i = 0; i < F; i++) {
         cout << endl;
-            for (int j = 0; j <= C; j++){
+            for (int j = 0; j < C; j++){
                 cout << tabla[i][j] << "\t";
             }
         }
@@ -122,8 +123,20 @@ void mostrar() { // Muestra la matriz
     cout << endl;
 }
 
-int sumaUtilidades(){ //Gera
-    
+int sumaUtilidades(){
+    int aux = 0;
+    int utilidades[F], suma = 0;
+    int ventas[F][3] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    for (int i = 0; i < F; i++)
+        for (int j = 1; j < 3; j++){
+            ventas[i][j] = tabla[i][j];
+        }
+    for (int i = 0; i < F; i++){
+        utilidades[i] = ventas[i][1] - ventas[i][2];
+    }
+    for (int i = 0; i < F; i++)
+        suma += utilidades[i];
+    return suma;
 }
 
 int productoMasVendido(){ //Gera
@@ -153,8 +166,8 @@ float promedioDeVentas(){ //Ángel
 void buscar(int dato){ //Cristian
     bool bandera = false;
     int posicionX, posicionY;
-    for (int i = 0; i <= F; i++)
-        for (int j = 0; j <= C; j++)
+    for (int i = 0; i < F; i++)
+        for (int j = 0; j < C; j++)
             if (tabla[i][j] == dato){
                 bandera = true;
                 posicionX = i;
