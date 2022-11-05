@@ -15,14 +15,14 @@ bool llenada = false;
 void llenado(); // Completado
 void llenadoAutomatico(); // Completado
 void mostrar(); // Completado
-int sumaUtilidades();
+int sumaUtilidades(); //Completado
 int productoMasVendido();
 int productoMenosVentas();
 int productoMasCaro();
 int totalStock();
 int productoMasUtilidad();
 float promedioDeVentas();
-void buscar(int dato);
+void buscar(int dato); //Completado
 void barraProgreso(); // Extra
 
 int main() {
