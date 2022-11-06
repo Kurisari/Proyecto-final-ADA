@@ -152,15 +152,29 @@ int productoMasCaro(){ //Gera
 }
 
 int totalStock(){ //Ángel
-
+int stock[F], suma;
+  suma=0;
+  for(int i=0; i<F; i++)
+    suma+=stock[i];
+    return suma;
 }
 
 int productoMasUtilidad(){ //Ángel
-
+int utilidades[F], mayor;
+   mayor=0;
+   for (int i=0; i<F; i++)
+     if (utilidades[i]>mayor) mayor=utilidades[i];
+   return mayor;
 }
 
 float promedioDeVentas(){ //Ángel
-
+float ventas[F], promedio, suma;
+  suma=0;
+  for (int i=0; i<F; i++){
+    suma+=ventas[i];
+    }
+  promedio=suma/F;
+  return promedio; 
 }
 
 void buscar(int dato){ //Cristian
