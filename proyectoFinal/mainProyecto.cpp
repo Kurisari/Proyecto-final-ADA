@@ -19,14 +19,15 @@ int sumaUtilidades(); //Completado
 int productoMasVendido();
 int productoMenosVentas();
 int productoMasCaro();
-int totalStock();
-int productoMasUtilidad();
-float promedioDeVentas();
+int totalStock(); //Completado
+int productoMasUtilidad(); // Completado
+float promedioDeVentas(); // Completado
 void buscar(int dato); //Completado
 void barraProgreso(); // Extra
 
 int main() {
     int aux;
+    float aux2;
     bool continuar = true;
     char opc;
     while (continuar){
@@ -46,17 +47,23 @@ int main() {
             break;
         case '4':
             aux = sumaUtilidades();
-            cout << "La suma de las utilidades es " << aux;
+            cout << "La suma de las utilidades es " << aux << endl;
             break;
         case '5':
             break;
         case '6':
             break;
         case '7':
+            aux = totalStock();
+            cout << "La suma total de stock es " << aux << endl;
             break;
         case '8':
+            aux = productoMasUtilidad();
+            cout << "El producto con mas utilidad es " << aux << endl;
             break;
         case '9':
+            aux2 = promedioDeVentas();
+            cout << "El promedio de ventas es " << aux2 << endl;
             break;
         case '-':
             break;
@@ -153,28 +160,44 @@ int productoMasCaro(){ //Gera
 
 int totalStock(){ //Ángel
 int stock[F], suma;
-  suma=0;
-  for(int i=0; i<F; i++)
-    suma+=stock[i];
+    suma=0;
+    for(int i=0; i<F; i++)
+        stock[i] = tabla[i][0];
+    for (int i = 0; i<F; i++)
+        suma += stock[i];
     return suma;
 }
 
 int productoMasUtilidad(){ //Ángel
-int utilidades[F], mayor;
-   mayor=0;
-   for (int i=0; i<F; i++)
-     if (utilidades[i]>mayor) mayor=utilidades[i];
-   return mayor;
+    int utilidades[F] = {0, 0, 0, 0, 0}, mayor = INT_MIN;
+    int ventas[F][3] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    for (int i = 0; i < F; i++)
+        for (int j = 1; j < 3; j++){
+            ventas[i][j] = tabla[i][j];
+        }
+    for (int i = 0; i < F; i++){
+        utilidades[i] = ventas[i][2] - ventas[i][1];
+        cout << utilidades[i] << endl;
+    }
+    for (int i = 0; i < F; i++){
+        if (utilidades[i] > mayor){
+            mayor = i+1;
+        }
+    }
+    return mayor;
 }
 
 float promedioDeVentas(){ //Ángel
-float ventas[F], promedio, suma;
-  suma=0;
-  for (int i=0; i<F; i++){
-    suma+=ventas[i];
+    float promedio = 0, suma = 0;
+    int ventas[F];
+    for (int i = 0; i < F; i++){
+        ventas[i] = tabla[i][3];
     }
-  promedio=suma/F;
-  return promedio; 
+    for (int i=0; i<F; i++){
+        suma += ventas[i];
+    }
+    promedio = float(suma)/float(F);
+    return promedio; 
 }
 
 void buscar(int dato){ //Cristian
