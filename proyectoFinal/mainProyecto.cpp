@@ -12,29 +12,33 @@ int tabla[F][C], resultados[F];
 bool llenada = false;
 
 // Índice
-void llenado(); // Completado
+void llenado();           // Completado
 void llenadoAutomatico(); // Completado
-void mostrar(); // Completado
-int sumaUtilidades(); //Completado
+void mostrar();           // Completado
+int sumaUtilidades();     // Completado
 int productoMasVendido();
 int productoMenosVentas();
 int productoMasCaro();
 int totalStock();
 int productoMasUtilidad();
 float promedioDeVentas();
-void buscar(int dato); //Completado
-void barraProgreso(); // Extra
+void buscar(int dato); // Completado
+void barraProgreso();  // Extra
 
-int main() {
+int main()
+{
     int aux;
     bool continuar = true;
     char opc;
-    while (continuar){
+    while (continuar)
+    {
     otro:
-        cout << endl << "Selecciona una opcion a ejecutar: " << endl;
+        cout << endl
+             << "Selecciona una opcion a ejecutar: " << endl;
         cout << "1	Llenado\n2	Llenado Automatico\n3	Mostrar\n4	Suma de las Utilidades\n5	producto que mas se vende\n6	Producto mas caro\n7	Total de stock\n8	Producto con mas utilidad\n9	Promedio de ventas\n-.	Producto que menos se vende\nb.	Buscar un dato\ns.      salir" << endl;
         cin >> opc;
-        switch (opc){ // Menu de opciones
+        switch (opc)
+        { // Menu de opciones
         case '1':
             llenado();
             break;
@@ -75,11 +79,14 @@ int main() {
     }
 }
 
-void llenado() { // llenado con datos ingresados por el usuario
+void llenado()
+{ // llenado con datos ingresados por el usuario
     for (int i = 0; i < F; i++)
-        for (int j = 0; j < C; j++){
+        for (int j = 0; j < C; j++)
+        {
             cout << "Producto: " << i << ", " << j << ": ";
-            switch (j){
+            switch (j)
+            {
             case 0:
                 cout << "Stock" << endl;
                 break;
@@ -98,40 +105,51 @@ void llenado() { // llenado con datos ingresados por el usuario
     llenada = true;
 }
 
-void llenadoAutomatico() { // Lenado automático con números aleatorios
+void llenadoAutomatico()
+{ // Lenado automático con números aleatorios
     barraProgreso();
     srand(time(NULL));
-    for (int i = 0; i < F; i++) 
-        for (int j = 0; j < C; j++){
-            tabla[i][j] = 10 + rand()%20;
+    for (int i = 0; i < F; i++)
+        for (int j = 0; j < C; j++)
+        {
+            tabla[i][j] = 10 + rand() % 20;
         }
     llenada = true;
 }
 
-void mostrar() { // Muestra la matriz
+void mostrar()
+{ // Muestra la matriz
     char eleccion;
-    if(llenada){
-        for (int i = 0; i < F; i++) {
-        cout << endl;
-            for (int j = 0; j < C; j++){
+    if (llenada)
+    {
+        for (int i = 0; i < F; i++)
+        {
+            cout << endl;
+            for (int j = 0; j < C; j++)
+            {
                 cout << tabla[i][j] << "\t";
             }
         }
-    } else{
+    }
+    else
+    {
         cout << "La tabla aun no ha sido llenada" << endl;
     }
     cout << endl;
 }
 
-int sumaUtilidades(){
+int sumaUtilidades()
+{
     int aux = 0;
     int utilidades[F], suma = 0;
     int ventas[F][3] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     for (int i = 0; i < F; i++)
-        for (int j = 1; j < 3; j++){
+        for (int j = 1; j < 3; j++)
+        {
             ventas[i][j] = tabla[i][j];
         }
-    for (int i = 0; i < F; i++){
+    for (int i = 0; i < F; i++)
+    {
         utilidades[i] = ventas[i][1] - ventas[i][2];
     }
     for (int i = 0; i < F; i++)
@@ -139,68 +157,107 @@ int sumaUtilidades(){
     return suma;
 }
 
-int productoMasVendido(){ //Gera
-
+int productoMasVendido()
+{ // Gera
+    int mv = 0, utilidades[F][3];
+    for (int i = 0; i < F; i++)
+    {
+        if (utilidades[i][3] > mv)
+        {
+            mv = i;
+        }
+    }
+    return mv;
 }
 
-int productoMenosVentas(){ //Gera
-
+int productoMenosVentas()
+{ // Gera
+    int mv = 10000, utilidades[F][3];
+    for (int i = 0; i < F; i++)
+    {
+        if (utilidades[i][3] < mv)
+        {
+            mv = i;
+        }
+    }
+    return mv;
 }
 
-int productoMasCaro(){ //Gera
-
+int productoMasCaro()
+{ // Gera
+    int mc = 0, utilidades[F][2];
+    for (int i = 0; i < F; i++)
+    {
+        if (utilidades[i][2] > mc)
+        {
+            mc = i;
+        }
+    }
+    return mc;
 }
 
-int totalStock(){ //Ángel
-int stock[F], suma;
-  suma=0;
-  for(int i=0; i<F; i++)
-    suma+=stock[i];
+int totalStock()
+{ // Ángel
+    int stock[F], suma;
+    suma = 0;
+    for (int i = 0; i < F; i++)
+        suma += stock[i];
     return suma;
 }
 
-int productoMasUtilidad(){ //Ángel
-int utilidades[F], mayor;
-   mayor=0;
-   for (int i=0; i<F; i++)
-     if (utilidades[i]>mayor) mayor=utilidades[i];
-   return mayor;
+int productoMasUtilidad()
+{ // Ángel
+    int utilidades[F], mayor;
+    mayor = 0;
+    for (int i = 0; i < F; i++)
+        if (utilidades[i] > mayor)
+            mayor = utilidades[i];
+    return mayor;
 }
 
-float promedioDeVentas(){ //Ángel
-float ventas[F], promedio, suma;
-  suma=0;
-  for (int i=0; i<F; i++){
-    suma+=ventas[i];
+float promedioDeVentas()
+{ // Ángel
+    float ventas[F], promedio, suma;
+    suma = 0;
+    for (int i = 0; i < F; i++)
+    {
+        suma += ventas[i];
     }
-  promedio=suma/F;
-  return promedio; 
+    promedio = suma / F;
+    return promedio;
 }
 
-void buscar(int dato){ //Cristian
+void buscar(int dato)
+{ // Cristian
     bool bandera = false;
     int posicionX, posicionY;
     for (int i = 0; i < F; i++)
         for (int j = 0; j < C; j++)
-            if (tabla[i][j] == dato){
+            if (tabla[i][j] == dato)
+            {
                 bandera = true;
                 posicionX = i;
                 posicionY = j;
             }
-    if (bandera){
+    if (bandera)
+    {
         cout << "Si se encontro el dato en la posicion " << posicionX << ", " << posicionY << endl;
-    } else {
+    }
+    else
+    {
         cout << "No se encontro el dato" << endl;
     }
 }
 
-void barraProgreso() { // Extra, contiene una función para generar una barra de progreso
+void barraProgreso()
+{ // Extra, contiene una función para generar una barra de progreso
     int segundos = 1;
     cout << "\t\t    Comenzando llenado automatico...\n";
     for (int i = 0; i <= 79; i++)
         cout << "_";
     cout << endl;
-    for (int i = 0; i <= 79; i++){
+    for (int i = 0; i <= 79; i++)
+    {
         cout << char(219);
         Sleep(segundos * 1000 / 80);
     }
