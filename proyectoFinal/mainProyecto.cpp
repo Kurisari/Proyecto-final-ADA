@@ -1,3 +1,11 @@
+/*
+Este proyecto está hecho para que se ingresen datos de productos de un abarrotes.
+Integrantes:
+Ángel Bolaños
+Gerardo Macías
+Cristian Aragón Salazar
+*/
+
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -197,7 +205,7 @@ int productoMasCaro() { // Pendiente
 }
 
 int totalStock(){ //Ángel
-int stock[F], suma;
+    int stock[F], suma;
     suma=0;
     for(int i=0; i<F; i++)
         stock[i] = tabla[i][0];
